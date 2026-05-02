@@ -1,0 +1,15 @@
+{
+  "name": "quiz_project",
+  "version": "1.0.0",
+  "description": "A server hosts a quiz game.",
+  "main": "bridge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.20.0"
+  }
+}
