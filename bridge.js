@@ -14,7 +14,7 @@ const net        = require("net");
 const WebSocket  = require("ws");
 
 const WEB_PORT    = 4444;   // browser connects here
-const C_HOST      = "127.0.0.1";
+const C_HOST = process.env.C_HOST || "127.0.0.1";
 const C_PORT      = 5000;   // your C server
 
 // ─── HTTP server (serves index.html) ─────────────────────────────────────────
@@ -103,7 +103,7 @@ function sendToWs(ws, obj) {
     ws.send(JSON.stringify(obj));
 }
 
-httpServer.listen(WEB_PORT, () => {
-  console.log(`\n🌐 Bridge running at http://localhost:${WEB_PORT}`);
+httpServer.listen(WEB_PORT, "0.0.0.0" , () => {
+  console.log(`\n🌐 Bridge running at http://0.0.0.0:${WEB_PORT}`);
   console.log(`   Make sure C server is running first:  ./server\n`);
 });

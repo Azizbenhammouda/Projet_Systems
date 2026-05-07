@@ -1,0 +1,8 @@
+FROM node:18
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY bridge.js .
+COPY index.html .
+EXPOSE 4444
+CMD ["node", "bridge.js"]

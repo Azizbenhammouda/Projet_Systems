@@ -1,0 +1,24 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    networks:
+      - quiznet
+
+  bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile.bridge
+    ports:
+      - "4444:4444"
+    environment:
+      - C_HOST=server
+      - C_PORT=5000
+    depends_on:
+      - server
+    networks:
+      - quiznet
+
+networks:
+  quiznet:
